@@ -63,7 +63,7 @@ const isProd = (process.env.NODE_ENV === 'production');
 
 //add all external css to be added in our index.html--> like as if it's .angular-cli.json
 const styles = [
-  "./src/styles.scss"
+  "./src/renderer/styles.scss"
 ];
 
 //we add all our external scripts we want to load externally, like inserting in our index.html --> like as if it's .angular-cli.json
@@ -100,7 +100,7 @@ function getPlugins() {
 
   plugins.push(new CopyWebpackPlugin([
     {
-      "context": "src",
+      "context": "src/renderer/",
       "to": "",
       "from": {
         "glob": "assets/**/*",
@@ -108,7 +108,7 @@ function getPlugins() {
       }
     },
     {
-      "context": "src",
+      "context": "src/renderer/",
       "to": "",
       "from": {
         "glob": "favicon.*",
@@ -132,7 +132,7 @@ function getPlugins() {
   plugins.push(new NamedLazyChunksWebpackPlugin());
 
   plugins.push(new HtmlWebpackPlugin({
-    "template": "./src/index.html",
+    "template": "./src/renderer/index.html",
     "filename": "./index.html",
     "hash": false,
     "inject": true,
@@ -206,11 +206,11 @@ function getPlugins() {
       "mainPath": "main.ts",
       "platform": 0,
       "sourceMap": true,
-      "tsConfigPath": "src/tsconfig.app.json",
+      "tsConfigPath": "src/renderer/tsconfig.app.json",
       "skipCodeGeneration": true,
       "compilerOptions": {},
       "hostReplacementPaths": {
-        "environments/index.ts": "environments/index.prod.ts"
+        "../environments/index.ts": "../environments/index.prod.ts"
       },
       "exclude": []
     }));
@@ -224,11 +224,11 @@ function getPlugins() {
       "mainPath": "main.ts",
       "platform": 0,
       "sourceMap": true,
-      "tsConfigPath": "src/tsconfig.app.json",
+      "tsConfigPath": "src/renderer/tsconfig.app.json",
       "skipCodeGeneration": true,
       "compilerOptions": {},
       "hostReplacementPaths": {
-        "environments/index.ts": "environments/index.ts"
+        "../environments/index.ts": "../environments/index.ts"
       },
       "exclude": []
     }));
@@ -289,10 +289,10 @@ module.exports = {
   },
   "entry": {
     "main": [
-      "./src/main.ts"
+      "./src/renderer/main.ts"
     ],
     "polyfills": [
-      "./src/polyfills.ts"
+      "./src/renderer/polyfills.ts"
     ],
     "styles": styles
   },

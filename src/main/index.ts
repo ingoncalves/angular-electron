@@ -6,7 +6,7 @@ const args = process.argv.slice(1);
 serve = args.some(val => val === '--serve');
 
 if (serve) {
-  require('electron-reload')(__dirname, {
+  require('electron-reload')(path.join(__dirname, '../'), {
   });
 }
 
@@ -24,7 +24,8 @@ function createWindow() {
   });
 
   // and load the index.html of the app.
-  win.loadURL('file://' + __dirname + '/index.html');
+  const dir = path.join(__dirname, '../');
+  win.loadURL('file://' + dir + '/index.html');
 
   // Open the DevTools.
   if (serve) {

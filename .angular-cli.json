@@ -6,7 +6,7 @@
   },
   "apps": [
     {
-      "root": "src",
+      "root": "src/renderer",
       "outDir": "dist",
       "assets": [
         "assets",
@@ -24,10 +24,10 @@
       ],
       "scripts": [
       ],
-      "environmentSource": "environments/environment.ts",
+      "environmentSource": "../environments/environment.ts",
       "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "dev": "../environments/environment.ts",
+        "prod": "../environments/environment.prod.ts"
       }
     }
   ],
